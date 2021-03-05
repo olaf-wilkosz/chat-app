@@ -1,0 +1,24 @@
+{
+  "name": "chat-app",
+  "version": "1.0.0",
+  "description": "Simple chat app for learning and testing WebSocket",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olaf-wilkosz/chat-app.git"
+  },
+  "keywords": [
+    "chat",
+    "app",
+    "websocket"
+  ],
+  "author": "Olaf Wilkosz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/olaf-wilkosz/chat-app/issues"
+  },
+  "homepage": "https://github.com/olaf-wilkosz/chat-app#readme"
+}
