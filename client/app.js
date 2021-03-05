@@ -13,12 +13,27 @@ loginForm.addEventListener('submit', (event) => {
 
 const login = event => {
   event.preventDefault();
-  console.log('userNameInput.value:', userNameInput.value);
+
   if (!userNameInput.value) {
-    alert('You cannot leave username empty!')
+    alert('You cannot leave username empty!');
   } else {
     userName = userNameInput;
     loginForm.classList.remove('show');
     messagesSection.classList.add('show');
+  };
+};
+
+addMessageForm.addEventListener('submit', (event) => {
+  sendMessage(event);
+});
+
+const sendMessage = event => {
+  event.preventDefault();
+  
+  if (!messageContentInput.value) {
+    alert('You cannot send empty message!');
+  } else {
+    addMessage(userName, messageContentInput.value);
+    messageContentInput.value = '';
   };
 };
