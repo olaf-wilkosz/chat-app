@@ -8,6 +8,8 @@ const messageContentInput = document.getElementById('message-content');
 const socket = io();
 
 socket.on('message', ({ author, content }) => addMessage(author, content));
+socket.on('userJoined', ({ author, content }) => addMessage(author, content));
+socket.on('userLeft', ({ author, content }) => addMessage(author, content));
 
 let userName = '';
 
@@ -48,7 +50,9 @@ const addMessage = (author, content) => {
   const message = document.createElement('li');
   message.classList.add('message');
   message.classList.add('message-received');
-  if (author === userName) {
+  if (author === 'Chat Bot') {
+    message.classList.add('message--bot');
+  } else if (author === userName) {
     message.classList.add('message--self');
   };
   message.innerHTML = `

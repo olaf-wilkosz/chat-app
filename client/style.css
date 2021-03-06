@@ -104,6 +104,17 @@ p {
   background: #3498db;
 }
 
+.message--bot .message__author {
+  display: none;
+}
+
+.message--bot .message__content {
+  font-style: italic;
+  font-size: 0.7rem;
+  opacity: 0.5;
+  margin: 20px auto 10px auto;
+}
+
 .show {
   display: block;
 }
