@@ -5,6 +5,10 @@ const addMessageForm = document.getElementById('add-messages-form');
 const userNameInput = document.getElementById('username');
 const messageContentInput = document.getElementById('message-content');
 
+const socket = io();
+
+socket.on('message', ({ author, content }) => addMessage(author, content));
+
 let userName = '';
 
 loginForm.addEventListener('submit', (event) => {
@@ -17,7 +21,7 @@ const login = event => {
   if (!userNameInput.value) {
     alert('You cannot leave username empty!');
   } else {
-    userName = userNameInput;
+    userName = userNameInput.value;
     loginForm.classList.remove('show');
     messagesSection.classList.add('show');
   };
@@ -34,6 +38,7 @@ const sendMessage = event => {
     alert('You cannot send empty message!');
   } else {
     addMessage(userName, messageContentInput.value);
+    socket.emit('message', { author: userName, content: messageContentInput.value });
     messageContentInput.value = '';
   };
 };
